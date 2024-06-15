@@ -96,14 +96,16 @@ class _HomeScreenState extends State<HomeScreen> {
   String _searchQuery = "";
 
   static List<String> availablerooms = [
-    'Room A',
-    'Room B',
-    'Room C',
     'Room 1',
     'Room 2',
     'Room 3',
     'Room 4',
     'Room 5',
+    'Room 6',
+    'Room 7',
+    'Room 8',
+    'Room 9',
+    'Room 10',
   ];
 
   void _onItemTapped(int index) {
@@ -181,7 +183,7 @@ class RoomsAvailable extends StatefulWidget {
 }
 
 class _RoomsAvailableState extends State<RoomsAvailable> {
-  void _bookRoom(String room) {
+  void bookRoom(String room) {
     setState(() {
       widget.availablerooms.remove(room);
       BookedRooms.bookedrooms.add(room);
@@ -201,7 +203,7 @@ class _RoomsAvailableState extends State<RoomsAvailable> {
               MaterialPageRoute(
                 builder: (context) => BookingScreen(
                   room: widget.availablerooms[index],
-                  onBookRoom: _bookRoom,
+                  onBookRoom: bookRoom,
                 ),
               ),
             );
